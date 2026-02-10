@@ -1,4 +1,4 @@
-# TeamD
+# Team Development
 
 ### Project Roles:
 | Role | Name |
