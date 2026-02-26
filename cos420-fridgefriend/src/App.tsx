@@ -19,6 +19,9 @@ function App() {
           </li>
           <li> Paige Doucette
             </li>
+            <li>
+              Drew Hafford
+            </li>
         </ul>
       </header>
     </div>
