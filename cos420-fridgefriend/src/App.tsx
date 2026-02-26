@@ -22,6 +22,9 @@ function App() {
             <li>
               Drew Hafford
             </li>
+            <li>
+              Willa Galipeau-Eldridge
+            </li>
         </ul>
       </header>
     </div>
