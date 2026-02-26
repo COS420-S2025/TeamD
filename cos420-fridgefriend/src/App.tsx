@@ -17,6 +17,8 @@ function App() {
           <li>
             Jennifer Morin
           </li>
+          <li> Paige Doucette
+            </li>
         </ul>
       </header>
     </div>
