@@ -29,8 +29,8 @@ Clone the Repository:
     git clone https://github.com/COS420-S2025/TeamD.git
 
 Navigate to project folder:
-    
-    cd cos420-fridgefriend
+
+    cd TeamD/cos420-fridgefriend
 
 Install dependecies: 
     
