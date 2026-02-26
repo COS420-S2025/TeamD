@@ -30,7 +30,7 @@ Clone the Repository:
 
  Navigate to project folder:
  
- cd fridgeFriend 
+ cd cos420-fridgefriend
 
  Install dependecies: 
  
