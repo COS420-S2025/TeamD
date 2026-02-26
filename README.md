@@ -25,15 +25,19 @@
 ### FridgeFriend Installation and Build Instructions
 
 Clone the Repository:
+    
     git clone https://github.com/COS420-S2025/TeamD.git
 
 Navigate to project folder:
+    
     cd cos420-fridgefriend
 
 Install dependecies: 
+    
     npm install 
 
 Launch:
+    
     npm start 
  
 
