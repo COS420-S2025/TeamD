@@ -39,6 +39,11 @@ Install dependecies:
 Launch:
     
     npm start 
- 
+
+***
+### Future Plans
+* Barcode Integration
+    * The logic for barcode scanning and processing will be integrated into the codebase.
+    * However, complete functionality depends on access to a paid API service. Due to the budget of this project, live API access is not active at this stage.
 
  
