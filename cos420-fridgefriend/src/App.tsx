@@ -1,12 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+let myColor = "pink";
 function App() {
   return (
+    
     <div className="App">
+      <div style={{ width: 1430, height: 50, backgroundColor: "pink" }}>
+      <button onClick={() => {
+                   myColor="yellow" 
+                }}
+                style={{ width: 100, height: 40, color: "black",backgroundColor: "pink" }}>Sign Out</button>
+    </div>
       <header className="App-header">
-        <p>
+        <p style={{ color: myColor}}>
           FRIDGE FRIEND!!!
         </p>
         <h1>Contributors</h1>
@@ -27,7 +34,11 @@ function App() {
             </li>
         </ul>
       </header>
+    {/* <div style={{ width: 200, height: 50, backgroundColor: "pink" }}>
+      <button>Sign Out</button>
+    </div> */}
     </div>
+    
   );
 }
 
