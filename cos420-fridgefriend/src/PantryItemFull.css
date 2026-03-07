@@ -1,0 +1,18 @@
+
+.PantryPage{
+    background-color: #FFAAAA;
+}
+
+.PantryPage img{
+    height: 75px;
+    width: 75px;
+}
+
+.PantryPage .qtyButton{
+    vertical-align: middle;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+}
