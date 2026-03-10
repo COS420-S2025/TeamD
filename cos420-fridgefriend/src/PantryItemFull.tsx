@@ -41,7 +41,7 @@ export function PantryItemFull(): React.JSX.Element {
             Expires: {expires.toDateString()} 
             <button className="expiryButton" onClick={()=> {}}>Set Expiry Date</button>
 
-            {/* idk if we'd need this, but its here */}
+            {/* idk if we'd need this, but its here. maybe you could click and hold on other things to do this? */}
             <button> Advanced Options? </button>
         </div>
     );
