@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 let myColor = "pink";
+
+
 function App() {
+  const [count, setCount]= useState(0);
   return (
     
     <div className="App">
       <div style={{ width: 1430, height: 50, backgroundColor: "pink" }}>
+        <p>{count%2==0 ? "logged in" : "logged out"}</p>
       <button onClick={() => {
-                   myColor="yellow" 
+                   setCount(count+1)
                 }}
                 style={{ width: 100, height: 40, color: "black",backgroundColor: "pink" }}>Sign Out</button>
     </div>
