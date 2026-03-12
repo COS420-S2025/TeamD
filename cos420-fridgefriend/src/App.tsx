@@ -10,7 +10,7 @@ function App() {
     
     <div className="App">
       <div style={{ width: 1430, height: 50, backgroundColor: "pink" }}>
-        <p>{count%2==0 ? "logged in" : "logged out"}</p>
+      <button onClick={()=>{myColor = "blue"}} style={{ width:100,height:40, color: "black", backgroundColor:"pink" }}>Sign In</button>  
       <button onClick={() => {
                    setCount(count+1)
                 }}
