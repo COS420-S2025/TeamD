@@ -36,9 +36,11 @@ Install dependecies:
     
     npm install 
 
+    npm install react-router-dom
+
 Launch:
     
-    npm start 
+    npm start
 
 ***
 ### Future Plans
