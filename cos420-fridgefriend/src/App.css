@@ -1,3 +1,42 @@
+:root {
+  --brand-green: #58EB94;
+  --bg-gray: #F8F9FA;
+  --text-main: #333333;
+}
+
+.header-bar {
+  background-color: var(--brand-green);
+  color: var(--text-main);
+  padding: 20px;
+  text-align: center;
+  font-weight: bolder;
+  display: flex;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
+
+.circle-icon {
+  width: 75px;
+  height: 75px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  margin-left: 20px;
+}
+
+
 .App {
   text-align: center;
 }
@@ -36,3 +75,4 @@
     transform: rotate(360deg);
   }
 }
+
