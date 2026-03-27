@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 import { BrowserRouter, Routes, Route, Link, Outlet } from 'react-router-dom';
 import { Refrigerator, CalendarDays, DollarSign, Users, House } from "lucide-react";
 import './App.css';
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 import placeholder from './barcode-scanner-placeholder.jpg';
-let myColor = "pink";
+
+
+
 
 function Home(){
   return (
@@ -229,18 +233,22 @@ function InviteMember(){
 }
 
 function App() {
-  const [count, setCount]= useState(0);
+  
   return (
     <>
     <BrowserRouter>
       <header>
         <h1>FridgeFriend</h1>
-         <Link to="/" className="homescreen-link">
+         <Link to="/home" className="homescreen-link">
             <House size={32} color="#333" strokeWidth={1.5}/>
         </Link>
       </header>
       <Routes>
-          <Route path="/" element={<Home />}></Route>
+          
+          <Route path="/" element ={<Login />} />
+          <Route path="/register" element ={<Register />} />
+          <Route path="/home" element={<Home />}></Route>
+          
           <Route path="/inventory" element={<Inventory />}></Route>
             <Route path="/inventory/addItem" element={<AddItem />}></Route>
             <Route path="/inventory/itemInfo" element={<ItemInfo />}></Route>
@@ -256,18 +264,7 @@ function App() {
     </BrowserRouter>
 
 
-    <div className="App">
-      <div style={{ width: 1430, height: 50, backgroundColor: "pink" }}>
-      <button onClick={()=>{myColor = "blue"}} style={{ width:100,height:40, color: "black", backgroundColor:"pink" }}>Sign In</button>  
-      <button onClick={() => {
-                   setCount(count+1)
-                }}
-                style={{ width: 100, height: 40, color: "black",backgroundColor: "pink" }}>Sign Out</button>
-    </div>
-    {/* <div style={{ width: 200, height: 50, backgroundColor: "pink" }}>
-      <button>Sign Out</button>
-    </div> */}
-    </div>
+
   </>
   );
 }
