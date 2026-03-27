@@ -35,8 +35,13 @@ Navigate to project folder:
 Install dependecies: 
     
     npm install 
+    
 
     npm install react-router-dom
+
+    
+    npm install lucide-react
+    
 
 Launch:
     
