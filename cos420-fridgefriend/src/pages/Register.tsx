@@ -20,7 +20,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = async () => {};
+  const handleRegister = async () => {
+  };
 
   return (
     <>
@@ -78,6 +79,7 @@ const Register = () => {
               </Grid>
             </Grid>
             <Button
+              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
