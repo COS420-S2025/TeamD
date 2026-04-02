@@ -16,9 +16,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleLogin = () => {
-        
+  const handleLogin = async () => {
+    
   };
 
   return (
@@ -26,6 +25,7 @@ const Login = () => {
       <Container maxWidth="xs">
         <CssBaseline />
         <Box
+          onSubmit={handleLogin}
           sx={{
             mt: 20,
             display: "flex",
@@ -66,6 +66,7 @@ const Login = () => {
             
             <Button
               fullWidth
+              type="submit"
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={handleLogin}
