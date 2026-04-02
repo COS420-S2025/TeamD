@@ -13,7 +13,7 @@ const renderLogin = () => {
 describe("Login Page", () => {
     test("navigates to register page", () => {
         renderLogin();
-        const link = screen.getByText(/don't have an account\> register/i);
+        const link = screen.getByText(/don't have an account\? register/i);
         expect(link.getAttribute('href')).toBe('/register');
     });
 
