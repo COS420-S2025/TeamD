@@ -8,8 +8,8 @@ import {
   Typography,
   TextField,
   Button,
-  GridLegacy as Grid,
 } from "@mui/material";
+import Grid from '@mui/material/Grid'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -75,7 +75,7 @@ const Login = () => {
             </Button>
             
             <Grid container justifyContent={"flex-end"}>
-              <Grid item>
+              <Grid>
                 <Link to="/register">Don't have an account? Register</Link>
               </Grid>
             </Grid>

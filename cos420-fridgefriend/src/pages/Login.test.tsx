@@ -1,12 +1,15 @@
 import Login from './Login';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
 const renderLogin = () => {
     return render (
-        <BrowserRouter>
+        <MemoryRouter future={{ 
+    v7_startTransition: true, 
+    v7_relativeSplatPath: true 
+  }}>
             <Login />
-        </BrowserRouter>
+        </MemoryRouter>
     );
 };
 
