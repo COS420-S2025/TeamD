@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { MemoryRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Login from "./pages/Login"
 import Register from "./pages/Register"
@@ -19,10 +19,10 @@ import { House } from "lucide-react";
 function App() {
   return (
     <>
-    <BrowserRouter>
-              <Link to="/home" className="homescreen-link">
-                  <House size={32} color="#333" strokeWidth={1.5} />
-              </Link>
+    <MemoryRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+      <Link to="/home" className="homescreen-link">
+        <House size={32} color="#333" strokeWidth={1.5} />
+      </Link>
       <Routes>
           <Route path="/" element ={<Login />} />
           <Route path="/register" element ={<Register />} />
@@ -33,13 +33,13 @@ function App() {
             <Route path="/inventory/itemInfo" element={<ItemInfo />}></Route>
             <Route path="/inventory/removeItem" element={<RemoveItem />}></Route>
             <Route path="/inventory/barcodeScanner" element={<BarcodeScanner />}></Route>
-          <Route path="/calendar" element={<ExpirationCalendar />}></Route>
+            <Route path="/calendar" element={<ExpirationCalendar />}></Route>
             <Route path="/calendar/itemInfo" element={<ItemInfo />}></Route>
-          <Route path="/spending" element={<Spending />}></Route>
-          <Route path="/household" element={<Household />}></Route>
+            <Route path="/spending" element={<Spending />}></Route>
+            <Route path="/household" element={<Household />}></Route>
             <Route path="/household/inviteMember" element={<InviteMember />}></Route>
       </Routes>
-    </BrowserRouter>
+    </MemoryRouter>
   </>
   );
 }
