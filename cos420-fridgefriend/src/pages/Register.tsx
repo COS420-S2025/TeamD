@@ -5,7 +5,7 @@ import {
   Button,
   Container,
   CssBaseline,
-  GridLegacy as Grid,
+  Grid,
   TextField,
   Typography,
 } from "@mui/material";
@@ -41,7 +41,7 @@ const Register = () => {
           <Typography variant="h5">Register</Typography>
           <Box sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   name="name"
                   required
@@ -54,7 +54,7 @@ const Register = () => {
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   required
                   fullWidth
@@ -65,7 +65,7 @@ const Register = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   required
                   fullWidth
@@ -88,7 +88,7 @@ const Register = () => {
               Register
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item>
+              <Grid>
                 <Link to="/">Already have an account? Login</Link>
               </Grid>
             </Grid>
