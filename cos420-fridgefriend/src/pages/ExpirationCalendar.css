@@ -1,0 +1,99 @@
+.rbc-header {
+    background: #58EB94;
+    color: black;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.rbc-event {
+    padding: 2px;
+    font-size: 12px;
+    background-color: #d7d5d5;
+    border: 2px solid black;
+    border-radius: 1px;
+    text-align: center;;
+    color: black;
+    font-weight: bolder;
+}
+
+.rbc-btn-group {
+    display: flex;
+    flex:1;
+    justify-content: flex-start;
+}
+
+.rbc-toolbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;;
+}
+
+select {
+    background-color: #d7d5d5;
+    color: black;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.rbr-toolbar-label {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#left {
+    background-color: #58EB94;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
+    display: flex;
+}
+
+#right {
+    background-color: #58EB94;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+
+.toolbar-center {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.rbc-toolbar-label {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.toolbar-right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.rbc-today {
+    background:#d3ebdd;
+}
+
+.header {
+    display: flex;
+}
+
+.header homescreen-link{
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.header h1 {
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    padding-left: 15px;
+}
