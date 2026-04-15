@@ -29,6 +29,6 @@ describe("Expiration Calendar Page", () => {
 
     test("renders headers for days of the week", () => {
         renderCalendar();
-        expect(screen.getByText(/next/i)).toBeInTheDocument();
+        expect(screen.getByRole('columnheader', {name: /mon/i})).toBeInTheDocument();
     });
 });

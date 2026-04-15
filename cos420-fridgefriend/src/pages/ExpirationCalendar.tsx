@@ -1,11 +1,13 @@
 import React, { useState} from 'react'
 import { Calendar, dateFnsLocalizer, Views, View, ToolbarProps } from 'react-big-calendar';
-import { format, parse, startOfWeek, getDay } from 'date-fns';
-import { enUS } from 'date-fns/locale/en-US'
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Link } from 'react-router-dom';
 import { House, ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import "./ExpirationCalendar.css";
+import { format, parse, startOfWeek, getDay } from 'date-fns';
+import { enUS } from 'date-fns/locale/en-US';
+
+//Source of Library for react-big-calendar component
+//Quense, J., Blades, S., Chadkin, B., & Andersen, T. Big Calendar [Computer software]. https://github.com/jquense/react-big-calendar
 
 const locales = {
   'en-US': enUS,
