@@ -75,7 +75,10 @@ const AddItem = () => {
           </div>
         
           <br />
-          <button type="submit" onClick={() => {}}>Add</button>
+          <button type="submit" onClick={() => 
+            {
+              
+            }}>Add</button>
           <Link to="/inventory"><button>Cancel</button></Link>
         </div>
       </>
