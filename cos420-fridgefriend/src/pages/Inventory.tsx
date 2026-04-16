@@ -4,32 +4,66 @@ import { House } from "lucide-react";
 
 
 const dummyList = [{
-  amount: 12,
-  name: 'Apple',
+  quantity: 12,
+  itemName: 'Apple',
   location: 'Fridge',
+  category: 'Produce',
+  price: 1,
+  expiry: new Date(Date.now()),
+  opened: false
 }, {
-  amount: 1,
-  name: 'Cake',
+  quantity: 1,
+  itemName: 'Cake',
   location: 'Fridge',
+  category: 'Produce',
+  price: 1,
+  expiry: new Date(Date.now()),
+  opened: false
 }, {
-  amount: 2,
-  name: 'Pretzels',
+  quantity: 2,
+  itemName: 'Pretzels',
   location: 'Pantry',
+  category: 'Produce',
+  price: 1,
+  expiry: new Date(Date.now()),
+  opened: false
 }, {
-  amount: 3,
-  name: 'Burritos',
+  quantity: 3,
+  itemName: 'Burritos',
   location: 'Freezer',
+  category: 'Produce',
+  price: 1,
+  expiry: new Date(Date.now()),
+  opened: false
 }];
-const listItems = dummyList.map(person =>
-  <li>
-     <p>
-       <b>{person.name}:</b>
-       <div>{' Location: '+person.location}</div>
-       
-       <div> Amount: {person.amount}</div>
-     </p>
-  </li>
+
+const listItems = dummyList.map(item =>
+  {MakeListItem(item);}
 );
+
+function MakeListItem(item: {
+    quantity: number,
+    itemName: string,
+    location: string,
+    category: string,
+    price: number,
+    expiry: Date,
+    opened: boolean
+ })
+  {
+    return (
+      <li>
+        <p>
+          <b>{item.itemName}:</b>
+          <div>{' Location: '+ item.location}</div>
+          
+          <div> Amount: {item.quantity}</div>
+        </p>
+      </li>
+    )
+}
+
+
 
 const Inventory = () => {
   return (
