@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom';
 import { House } from "lucide-react";
+import { JsxElement } from 'typescript';
 
 
 const dummyList = [{
@@ -23,12 +24,12 @@ const dummyList = [{
   quantity: 2,
   itemName: 'Pretzels',
   location: 'Pantry',
-  category: 'Produce',
+  category: 'Produce2',
   price: 1,
   expiry: new Date(Date.now()),
   opened: false
 }, {
-  quantity: 3,
+  quantity: 33,
   itemName: 'Burritos',
   location: 'Freezer',
   category: 'Produce',
@@ -38,7 +39,7 @@ const dummyList = [{
 }];
 
 const listItems = dummyList.map(item =>
-  {MakeListItem(item);}
+  MakeListItem(item)
 );
 
 function MakeListItem(item: {
