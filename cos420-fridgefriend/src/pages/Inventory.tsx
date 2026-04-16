@@ -3,6 +3,34 @@ import { Link, Outlet } from 'react-router-dom';
 import { House } from "lucide-react";
 
 
+const dummyList = [{
+  amount: 12,
+  name: 'Apple',
+  location: 'Fridge',
+}, {
+  amount: 1,
+  name: 'Cake',
+  location: 'Fridge',
+}, {
+  amount: 2,
+  name: 'Pretzels',
+  location: 'Pantry',
+}, {
+  amount: 3,
+  name: 'Burritos',
+  location: 'Freezer',
+}];
+const listItems = dummyList.map(person =>
+  <li>
+     <p>
+       <b>{person.name}:</b>
+       <div>{' Location: '+person.location}</div>
+       
+       <div> Amount: {person.amount}</div>
+     </p>
+  </li>
+);
+
 const Inventory = () => {
   return (
     <>
@@ -27,6 +55,7 @@ const Inventory = () => {
           <Link to="/inventory/addItem"><button>Add</button></Link>
           <Link to="/inventory/removeItem"><button>Remove</button></Link>
         </div>
+        <ul>{listItems}</ul>;
     </>
   )
 }
