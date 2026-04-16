@@ -41,6 +41,9 @@ Install dependecies:
 
     
     npm install lucide-react
+
+
+    npm install react-big-calendar date-fns
     
 
 Launch:
