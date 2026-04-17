@@ -15,19 +15,22 @@ const InviteMember = () => {
     </div>
     <div>
       <h2 className="header-bar">Invite Member</h2>
+      <form>
+        <fieldset>
       <div>
-        <label>Name:</label>
-        <input type="text" name="quantity" placeholder="Enter new member's name" required></input>
+        <label htmlFor="name">Name:</label>
+        <input type="text" name="quantity" placeholder="Enter new member's name" id="name" required></input>
       </div>
 
       <div>
-        <label>Email:</label>
-        <input type="email" name="email" placeholder="Enter new members's email" required></input>
+        <label htmlFor="email">Email:</label>
+        <input type="email" name="email" placeholder="Enter new members's email"  id="email" required></input>
       </div>
-     
+      </fieldset>
       <br />
       <button type="submit">Enter</button>
       <br />
+      </form>
       <Link to="/household"><button>Back</button></Link>
     </div>
     </>
