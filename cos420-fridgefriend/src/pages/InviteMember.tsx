@@ -22,7 +22,7 @@ const InviteMember = () => {
         <input type="text" name="quantity" placeholder="Enter new member's name" id="name" required></input>
       </div>
 
-      <div>
+      {/* <div>
         <label htmlFor="email">Email:</label>
         <input type="email" name="email" placeholder="Enter new members's email"  id="email" required></input>
       </div>
@@ -32,7 +32,7 @@ const InviteMember = () => {
       <br />
       </form>
       <Link to="/household"><button>Back</button></Link>
-    </div>
+    </div> */}
     </>
   )
 }
