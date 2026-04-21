@@ -14,8 +14,8 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.126",
     "@types/react-dom": "^19.2.3",
-    "lucide-react": "^1.8.0",
     "date-fns": "^4.1.0",
+    "firebase": "^12.12.1",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",
     "react-big-calendar": "^1.19.4",
@@ -56,9 +56,8 @@
     "@types/react-big-calendar": "^1.16.3"
   },
   "jest": {
-  "transformIgnorePatterns": [
-    "node_modules/(?!date-fns)"
-  ]
+    "transformIgnorePatterns": [
+      "node_modules/(?!date-fns)"
+    ]
   }
 }
-
