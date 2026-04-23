@@ -44,6 +44,9 @@ Install dependecies:
 
 
     npm install react-big-calendar date-fns
+
+
+    npm install firebase
     
 
 Launch:
