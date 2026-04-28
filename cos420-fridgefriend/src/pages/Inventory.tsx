@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {ReactElement, useState} from 'react'
 import { Link, Outlet } from 'react-router-dom';
 import { House } from "lucide-react";
 import { JsxElement } from 'typescript';
 
+interface pantryItem{
+  quantity: number;
+  itemName: string;
+  location: string;
+  category: string;
+  price: number;
+  expiry: Date;
+  opened: Boolean;
+}
 
-const dummyList = [{
+const dummyList: pantryItem[] = [{
   quantity: 12,
   itemName: 'Apple',
   location: 'Fridge',
@@ -38,19 +47,17 @@ const dummyList = [{
   opened: false
 }];
 
-const listItems = dummyList.map(item =>
-  MakeListItem(item)
-);
+const [listItems, setListItems] = useState<ReactElement[]>([]);
 
-function MakeListItem(item: {
-    quantity: number,
-    itemName: string,
-    location: string,
-    category: string,
-    price: number,
-    expiry: Date,
-    opened: boolean
- })
+setListItems(dummyList.map(item =>
+  MakeListItem(item)
+));
+
+/*const listItems = dummyList.map(item =>
+  MakeListItem(item)
+);*/
+
+function MakeListItem(item: pantryItem)
   {
     return (
       <li>
@@ -64,7 +71,32 @@ function MakeListItem(item: {
     )
 }
 
+// Put sort modes can be changed by chaning mode. Need to make more functions for it
+// 0 = expiry
+// 1 = location
+function SortList(mode: number){
+  if(mode == 0)
+    setListItems(dummyList.sort((a, b) => SortByExpiry(a,b))
+      .map(item =>
+      MakeListItem(item)
+    ));
 
+    if(mode == 1)
+    setListItems(dummyList.sort((a, b) => SortByLocation(a,b))
+      .map(item =>
+      MakeListItem(item)
+    ));
+}
+
+function SortByExpiry(a: pantryItem, b:pantryItem): number{
+  if(a.expiry.getTime() > b.expiry.getTime()) return 1;
+  if(a.expiry.getTime() > b.expiry.getTime()) return -1;
+  return 0;
+}
+
+function SortByLocation(a: pantryItem, b:pantryItem): number{
+  return a.location.localeCompare(b.location);
+}
 
 const Inventory = () => {
   return (
