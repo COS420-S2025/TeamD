@@ -65,12 +65,12 @@ const AddItem = () => {
           </div>
           <div>
                       <label>Expiration Date XX/XX/XXXX:</label>
-          <input type="text" data-testid="itemName" name="itemName" onChange={e => setExpiry(e.target.value)} placeholder="Enter your items expiration" required></input>
+          <input type="text" data-testid="Expiration Date XX/XX/XXXX: " name="itemName" onChange={e => setExpiry(e.target.value)} placeholder="Enter your items expiration" required></input>
           </div>
 
           <div>
             <label>Mark as Opened:</label>
-            <input type="checkbox" data-testid="opened" onClick={() => setOpened(!opened)}/>
+            <input type="checkbox" data-testid="Mark as Opened: " onClick={() => setOpened(!opened)}/>
           </div>
 
           <div>

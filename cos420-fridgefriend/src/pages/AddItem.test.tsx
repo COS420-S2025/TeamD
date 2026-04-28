@@ -16,7 +16,7 @@ const renderPageToTest = () => {
 describe("Expiration Calendar Page", () => {
     test("renders 'add' and 'cancel' buttons", () => {
         renderPageToTest();
-        expect(screen.getByRole('button', {name: /add/i})).toBeInTheDocument();
+        expect(screen.getByRole('button', {name: /Submit/i})).toBeInTheDocument();
         expect(screen.getByRole('button', {name: /cancel/i})).toBeInTheDocument();
     });
 
@@ -29,10 +29,10 @@ describe("Expiration Calendar Page", () => {
 
     test("renders non-text input fields", () => {
         renderPageToTest();
-        expect(screen.getByTestId("opened")).toBeInTheDocument();
+        expect(screen.getByTestId("Mark as Opened:")).toBeInTheDocument();
         expect(screen.getByTestId("fridge")).toBeInTheDocument();
         expect(screen.getByTestId("freezer")).toBeInTheDocument();
         expect(screen.getByTestId("pantry")).toBeInTheDocument();
-        expect(screen.getByTestId("expirationDate")).toBeInTheDocument();
+        expect(screen.getByTestId("Expiration Date XX/XX/XXXX:")).toBeInTheDocument();
     });
 });
