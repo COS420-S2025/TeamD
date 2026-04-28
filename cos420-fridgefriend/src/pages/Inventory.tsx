@@ -12,13 +12,16 @@ interface data {
   opened: boolean;
   price: number;
   quantity: number;
-  expiry?: Date;
+  expiry: string
 }
 
-
+// function properties(){
+//   return [item.itemName, item.category, item.location, item.opened, item.price, item.quantity]
+// }
 function ItemList(){
   //const[foodItem, setFoodItem]= useState(null);
   const [foodItem, setFoodItem] = useState<any>(null);
+  const [Inventory, setInventory] = useState<any>(null);
   const itemCollRef = collection(db, 'foodItem');
   
   
@@ -46,64 +49,35 @@ function ItemList(){
           <button onClick = {async () =>{
             const collData = await getDocs(itemCollRef);
             const itemArray = collData.docs.map(doc => ({ 
-              itemName: doc.data().itemName
+              itemName: doc.data().itemName,
+              category: doc.data().category,
+              location: doc.data().location,
+              opened: doc.data().opened,
+              price: doc.data().price,
+              quantity: doc.data().quantity,
+              expiry: doc.data().expiry
+
             }));
             console.log(itemArray)
             setFoodItem(itemArray)
             console.log(foodItem)
+            const listItems = itemArray.map(item =>
+            MakeListItem(item)
+            );
+            
+          setInventory(listItems)
           }}>Load Items</button>
-          {foodItem == null ? <p>Loading</p>: foodItem.map((item:any, index:number) => <div key={index}>{item.itemName} </div>)}
+          
+          {foodItem == null ? <p>Loading</p>: <ul>{Inventory}</ul>}
           <Link to="/inventory/addItem"><button>Add</button></Link>
           <Link to="/inventory/removeItem"><button>Remove</button></Link>
         </div>
-        <ul>{listItems}</ul>;
+        {/* <ul>{Inventory}</ul>; */}
     </>
   )
   //console.log(collData.docs);
 }
-const dummyList: data[] = [{
-  quantity: 12,
-  itemName: 'Apple',
-  location: 'Fridge',
-  category: 'Produce',
-  price: 1,
-  expiry: new Date(Date.now()),
-  opened: false
-}, {
-  quantity: 1,
-  itemName: 'Cake',
-  location: 'Fridge',
-  category: 'Produce',
-  price: 1,
-  expiry: new Date(Date.now()),
-  opened: false
-}, {
-  quantity: 2,
-  itemName: 'Pretzels',
-  location: 'Pantry',
-  category: 'Produce2',
-  price: 1,
-  expiry: new Date(Date.now()),
-  opened: false
-}, {
-  quantity: 33,
-  itemName: 'Burritos',
-  location: 'Freezer',
-  category: 'Produce',
-  price: 1,
-  expiry: new Date(Date.now()),
-  opened: false
-}];
 
-const [listItems, setListItems] = useState<ReactElement[]>([]);
-
-setListItems(dummyList.map(item =>
-  MakeListItem(item)
-));
-
-/*const listItems = dummyList.map(item =>
-  MakeListItem(item)
-);*/
 
 function MakeListItem(item: data)
   {
@@ -147,33 +121,33 @@ function SortByLocation(a: data, b:data): number{
   return a.location.localeCompare(b.location);
 }
 
-const Inventory = () => {
-  return (
-    <>
-        <div>
-            <h1>FridgeFriend</h1>
-            <Link to="/home" className="homescreen-link">
-                <House size={32} color="#333" strokeWidth={1.5} />
-            </Link>
-            <hr />
-        </div>
-        <div>
-          <nav>
-            <Link to="/inventory/itemInfo">Item Info</Link>
-          </nav>
-          <Outlet />
-          <h2 className="header-bar">Inventory</h2>
-          <select>
-              <option id="fridge">Fridge</option>
-              <option id="fridge">Freezer</option>
-              <option id="fridge">Pantry</option>
-          </select>
-          <Link to="/inventory/addItem"><button>Add</button></Link>
-          <Link to="/inventory/removeItem"><button>Remove</button></Link>
-        </div>
-        <ul>{listItems}</ul>;
-    </>
-  )
-}
+// const Inventory = () => {
+//   return (
+//     <>
+//         <div>
+//             <h1>FridgeFriend</h1>
+//             <Link to="/home" className="homescreen-link">
+//                 <House size={32} color="#333" strokeWidth={1.5} />
+//             </Link>
+//             <hr />
+//         </div>
+//         <div>
+//           <nav>
+//             <Link to="/inventory/itemInfo">Item Info</Link>
+//           </nav>
+//           <Outlet />
+//           <h2 className="header-bar">Inventory</h2>
+//           <select>
+//               <option id="fridge">Fridge</option>
+//               <option id="fridge">Freezer</option>
+//               <option id="fridge">Pantry</option>
+//           </select>
+//           <Link to="/inventory/addItem"><button>Add</button></Link>
+//           <Link to="/inventory/removeItem"><button>Remove</button></Link>
+//         </div>
+//         <ul>{listItems}</ul>;
+//     </>
+//   )
+// }
 
 export default ItemList;
