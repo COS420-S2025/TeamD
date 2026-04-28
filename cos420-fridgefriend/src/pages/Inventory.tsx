@@ -38,9 +38,9 @@ function ItemList(){
           <Outlet />
           <h2 className="header-bar">Inventory</h2>
           <select>
-              <option id="fridge">Fridge</option>
-              <option id="fridge">Freezer</option>
-              <option id="fridge">Pantry</option>
+              <option id="fridge" value="Fridge">Fridge</option>
+              <option id="fridge" value="Freezer">Freezer</option>
+              <option id="fridge" value="Pantry">Pantry</option>
           </select>
           
           <button onClick = {async () =>{
