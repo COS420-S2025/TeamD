@@ -25,7 +25,9 @@ function App() {
       </Link>
       <Routes>
           <Route path="/" element ={<Login />} />
-          <Route path="/register" element ={<Register />} />
+          <Route path="/register" element ={<Register setRegister={function (register: boolean): void {
+            throw new Error('Function not implemented.');
+          } } />} />
           <Route path="/home" element={<Home />}></Route>
           
           <Route path="/inventory" element={<Inventory />}></Route>
