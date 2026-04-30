@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Avatar,
   Box,
   Button,
   Container,
@@ -9,12 +8,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { LockOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 // import FormControl from '@mui/material/FormControl';
+import logo from "../Logo.png";
+
 
 interface RegisterProps{
   setRegister:(register:boolean)=>void;
@@ -45,15 +45,15 @@ const Register: React.FC<RegisterProps> = ({setRegister}) => {
         <CssBaseline />
         <Box
           sx={{
-            mt: 20,
+            mt: 10,
+            mb: 20,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.light" }}>
-            <LockOutlined />
-          </Avatar>
+          <img src={logo} width="100px"></img>
+          <Typography variant="h4" sx={{m: 2}}>FridgeFriend</Typography>
           <Typography variant="h5">Register</Typography>
           <Box component='form' noValidate onSubmit={handleRegister} sx={{ mt: 3}}>
             <Grid container spacing={2}>
@@ -99,11 +99,11 @@ const Register: React.FC<RegisterProps> = ({setRegister}) => {
               type="button"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, backgroundColor: "#58EB94", color: "black"}}
             >
               Register
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center">
               <Grid>
                 <Link to="/">Already have an account? Login</Link>
               </Grid>
