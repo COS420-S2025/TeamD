@@ -13,16 +13,12 @@ import ExpirationCalendar from "./pages/ExpirationCalendar"
 import Spending from "./pages/Spending"
 import Household from "./pages/Household"
 import InviteMember from "./pages/InviteMember"
-import { House } from "lucide-react";
 
 
 function App() {
   return (
     <>
     <MemoryRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
-      <Link to="/home" className="homescreen-link">
-        <House size={32} color="#333" strokeWidth={1.5} />
-      </Link>
       <Routes>
           <Route path="/" element ={<Login />} />
           <Route path="/register" element ={<Register setRegister={function (register: boolean): void {
