@@ -14,6 +14,7 @@ import { useState } from "react";
 import { Link, redirect,useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth,} from '../firebase';
+import logo from "../Logo.png";
 
 
 const Login = () => {
@@ -44,9 +45,7 @@ const Login = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.light" }}>
-            <LockOutlined />
-          </Avatar>
+          <img src={logo} width="100px"></img>
           <Typography variant="h5">Login</Typography>
           <Box sx={{ mt: 1 }}>
             <TextField
