@@ -1,10 +1,8 @@
 import React from 'react'
-import { LockOutlined } from "@mui/icons-material";
 import {
   Container,
   CssBaseline,
   Box,
-  Avatar,
   Typography,
   TextField,
   Button,
@@ -14,6 +12,7 @@ import { useState } from "react";
 import { Link, redirect,useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth,} from '../firebase';
+import logo from "../Logo.png";
 
 
 const Login = () => {
@@ -38,15 +37,15 @@ const Login = () => {
         <Box
           onSubmit={handleLogin}
           sx={{
-            mt: 20,
+            mt: 10,
+            mb: 20,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.light" }}>
-            <LockOutlined />
-          </Avatar>
+          <img src={logo} width="100px"></img>
+          <Typography variant="h4" sx={{m: 2}}>FridgeFriend</Typography>
           <Typography variant="h5">Login</Typography>
           <Box sx={{ mt: 1 }}>
             <TextField
@@ -79,13 +78,13 @@ const Login = () => {
               fullWidth
               type="submit"
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, backgroundColor: "#58EB94", color: "black"}}
               onClick={handleLogin}
             >
               Login
             </Button>
             
-            <Grid container justifyContent={"flex-end"}>
+            <Grid container justifyContent={"center"}>
               <Grid>
                 <Link to="/register">Don't have an account? Register</Link>
               </Grid>
