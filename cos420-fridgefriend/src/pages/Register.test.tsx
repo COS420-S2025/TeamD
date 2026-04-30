@@ -8,7 +8,9 @@ const renderRegister = () => {
     v7_startTransition: true, 
     v7_relativeSplatPath: true 
   }}>
-            <Register />
+            <Register setRegister={function (register: boolean): void {
+                throw new Error('Function not implemented.');
+            } } />
         </MemoryRouter>
     );
 };

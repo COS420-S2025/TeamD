@@ -11,13 +11,24 @@ import {
 } from "@mui/material";
 import Grid from '@mui/material/Grid'
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect,useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import {auth,} from '../firebase';
+
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = async () => {
-    
+    try {
+            await signInWithEmailAndPassword(auth,email, password);
+            console.log("Sign in Successful")
+            navigate('/home');
+        } catch (error) {
+            console.error('Sign in error:', error);
+        }
+        
   };
 
   return (

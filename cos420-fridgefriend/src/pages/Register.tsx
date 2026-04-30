@@ -11,16 +11,32 @@ import {
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import FormControl from '@mui/material/FormControl';
 
+interface RegisterProps{
+  setRegister:(register:boolean)=>void;
+}
 
+const Register: React.FC<RegisterProps> = ({setRegister}) => {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [displayName, setDisplayName] = useState('');
 
-const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleRegister = async () => {
+  const handleRegister = async (e: React.FormEvent) => {
+    console.log("FORM SUBMITTED");
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCredential.user, { displayName });
+      console.log("User registered successfully");
+      navigate('/')
+    } catch (error) {
+      console.error("Error registering user:", error);
+    }
   };
 
   return (
@@ -39,7 +55,7 @@ const Register = () => {
             <LockOutlined />
           </Avatar>
           <Typography variant="h5">Register</Typography>
-          <Box sx={{ mt: 3 }}>
+          <Box component='form' noValidate onSubmit={handleRegister} sx={{ mt: 3}}>
             <Grid container spacing={2}>
               <Grid size={12}>
                 <TextField
@@ -49,8 +65,8 @@ const Register = () => {
                   id="name"
                   label="Name"
                   autoFocus
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={displayName}
+                  onChange={(e) => setDisplayName(e.target.value)}
                 />
               </Grid>
 
@@ -70,7 +86,7 @@ const Register = () => {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Password (Minimum 6 characters)"
                   type="password"
                   id="password"
                   value={password}
@@ -79,11 +95,11 @@ const Register = () => {
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              onClick={handleRegister}
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleRegister}  
             >
               Register
             </Button>
