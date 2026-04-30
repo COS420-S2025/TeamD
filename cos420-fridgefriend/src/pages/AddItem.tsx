@@ -1,15 +1,19 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import { House, Camera } from "lucide-react";
+//import {useState} from "react"
+import {db} from "../firebase"
+import {collection, getDocs, addDoc} from "firebase/firestore"
+
 
 
 const AddItem = () => {
-
-  const [location, setLocation] = useState<number>(0);
+  const itemCollRef = collection(db, 'foodItem');
+  const [location, setLocation] = useState<string>("");
   const [itemName, setName] = useState<string>("");
   const [category, setCategory] = useState<string>("Produce");
   const [price, setPrice] = useState<number>(0);
-  const [expiry, setExpiry] = useState<Date>(new Date());
+  const [expiry, setExpiry] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(0);
   const [opened, setOpened] = useState<boolean>(false);
 
@@ -36,12 +40,12 @@ const AddItem = () => {
         <div>
               <label>Location</label><br />
               <label>
-                <input type="radio" data-testid="fridge" name="location" value="fridge" onClick={e => setLocation(0)} />Fridge
+                <input type="radio" data-testid="fridge" name="location" value="fridge" onClick={e => setLocation("Fridge")} />Fridge
               </label><br />
               <label>
-                <input type="radio" data-testid="freezer" name="location" value="freezer" onClick={e => setLocation(1)} />Freezer
+                <input type="radio" data-testid="freezer" name="location" value="freezer" onClick={e => setLocation("Freezer")} />Freezer
                 </label><br />
-              <label><input type="radio" data-testid="pantry" name="location" value="pantry" onClick={e => setLocation(2)} />Pantry
+              <label><input type="radio" data-testid="pantry" name="location" value="pantry" onClick={e => setLocation("Pantry")} />Pantry
               </label><br />
         </div><br/>
             <label>Category</label><br />
@@ -60,13 +64,13 @@ const AddItem = () => {
             <input type="text" data-testid="price" name="price" placeholder="$0.00"  onChange={e => setPrice(e.target.value.length>0 && !Number.isNaN(Number.parseFloat(e.target.value)) ? Number.parseFloat(e.target.value) : 0)}></input>
           </div>
           <div>
-            <label>Expiration Date:</label>
-            <input type="date" data-testid="expirationDate" name="expirationDate" placeholder="MM/DD/YYYY" onChange={e => setExpiry(new Date(e.target.value))}></input>
+                      <label>Expiration Date XX/XX/XXXX:</label>
+          <input type="text" data-testid="Expiration Date XX/XX/XXXX: " name="itemName" onChange={e => setExpiry(e.target.value)} placeholder="Enter your items expiration" required></input>
           </div>
 
           <div>
             <label>Mark as Opened:</label>
-            <input type="checkbox" data-testid="opened" onClick={() => setOpened(!opened)}/>
+            <input type="checkbox" data-testid="Mark as Opened: " onClick={() => setOpened(!opened)}/>
           </div>
 
           <div>
@@ -75,13 +79,25 @@ const AddItem = () => {
           </div>
         
           <br />
-          <button name="add" id="submit" type="submit" onClick={e => 
+          {/* <button name="add" id="submit" type="submit" onClick={e => 
             {
               (document.getElementById("submit") as HTMLInputElement).disabled = true;
               //addItem({location: location, itemName: itemName, ...}); etc.
               //Basically just making an object to hold things, then passing it back.
               (document.getElementById("submit") as HTMLInputElement).disabled = false;
-            }}>Add</button>
+            }}>Add</button> */}
+            <button onClick={async (ev) =>{
+                        ev.preventDefault()
+                        await addDoc(itemCollRef, {
+                          itemName: itemName,
+                          category: category,
+                          location: location,
+                          opened: opened,
+                          price: price,
+                          quantity: quantity,
+                          expiry: expiry
+            
+                        })}}>Submit</button>
           <Link to="/inventory"><button name="cancel">Cancel</button></Link>
         </div>
       </>
